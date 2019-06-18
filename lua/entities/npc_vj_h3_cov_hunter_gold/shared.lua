@@ -1,0 +1,8 @@
+ENT.Base 			= "npc_vj_creature_base"
+ENT.Type 			= "ai"
+ENT.PrintName 		= "Hunter"
+ENT.Author 			= "Mayhem"
+ENT.Contact 		= "http://vrejgaming.webs.com/"
+ENT.Purpose 		= "Let it eat you."
+ENT.Instructions	= "Click on it to spawn it."
+ENT.Category		= "Halo 3"

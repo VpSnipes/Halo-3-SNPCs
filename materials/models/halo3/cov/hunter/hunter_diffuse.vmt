@@ -1,0 +1,25 @@
+"VertexlitGeneric"
+{
+	"$basetexture"			"models/halo3/cov/hunter/hunter_diffuse"
+	"$bumpmap"			"models/halo3/cov/hunter/hunter_zbump"
+	"$color2"				"[0.75 0.84 1.12]"
+	"$AmbientOcclusion"		"1"
+	
+	"$nodecal"			"1"
+	"$normalmapalphaenvmapmask"	"1"
+	"$phong"				"1"
+	"$phongexponent"			"15"
+	"$phongboost"			"20"
+	"$phongtint"			"[0.14 0.21 0.30]"
+	"$phongfresnelranges"		"[0.67 0.83 1]"
+
+	"$phongalbedotint" 			"1"
+	"$phongwarptexture" 		"models/halo3/cov/scarab/phongwarp_metal2"
+
+	"$blendtintbybasealpha" 		"1"
+	"$blendtintcoloroverbase" 		"0"
+
+	"$rimlight"			"1"
+	"$rimlightexponent"			"2"
+	"$rimlightboost"			"0.2"
+}

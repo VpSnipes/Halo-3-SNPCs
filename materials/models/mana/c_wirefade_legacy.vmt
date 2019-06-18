@@ -1,0 +1,14 @@
+"Wireframe"
+{
+	$model 			1
+	$additive 		1
+	$nodecal 		1
+	$nocull 		0
+
+	"Proxies"
+	{
+		"BloomAdd"
+		{
+		}
+	}
+}

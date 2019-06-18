@@ -1,0 +1,18 @@
+"Refract"
+{
+	$normalmap				"models/black_fakebump"
+
+	$refractamount 			0.1
+	$bluramount 			0.8
+
+	$forcerefract 			1
+	$fresnelrefrelction 	1
+	
+	$masked 				1
+	$forcealphawrite 		1
+
+	$nofog 					1
+	$nodecal 				1
+	$nocull 				0
+	$model 					1
+}

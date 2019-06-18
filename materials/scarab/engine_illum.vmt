@@ -1,0 +1,8 @@
+"VertexLitGeneric"
+{
+"$basetexture" "scarab/scarab_illum"
+"$translucent" "1"
+"$nocull""1"
+"$envmapmask" "misscarab/scarab_illum"
+"$selfillum_envmapmask_alpha" 1
+}

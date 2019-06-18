@@ -1,0 +1,64 @@
+"VertexlitGeneric"
+{
+	$basetexture 				"dev/hide" // make the mesh invisible
+
+	$nocull						1 // no culling, we can see through; backfaces will be rendered.
+	$nodecal 					1 // no decals. Nobody has ever heard of blood splatter on top of an energy shield.
+
+	$alphatest 					1 // proper alpha blending. Unless your PC is from pre 2003, this shouldn't be an issue.
+	$translucent 				1 // unless you haven't gotten it by now, it's transparent / invisible.
+	$additive 					1 // yeah ... same shit ... 
+	
+	// Emissive Blend
+	// Bright, distorted energy ripples.
+	$emissiveBlendEnabled 		1 
+	$emissiveBlendTexture		"models/mana/shield_noise" 			// noise texture
+	$emissiveBlendBaseTexture	"vgui/white" 						// Full-body visibility. This is NOT equal to invisibility or "hiding", since $emissiveBlendBaseTexture is only a grayscale texture with NO alpha channel.
+	$emissiveBlendFlowTexture	"models/mana/shield_flow" 			// flow map
+	$emissiveBlendTint 			"[ 0.4 0.6 6 ]" 					// standard color. This one will be overwritten by the util.Effect()
+	$emissiveBlendStrength 		1 									// See proxies down below
+	$emissiveBlendScrollVector 	"[ -1 2 ]" 							// Scroll direction. Move fast.
+ 
+	// Flesh Blend
+	// Soft color patches. The main purpose of this is to make the shield appear more uniform and make it easier to spot shielded targets from afar when damaging them.
+	$FleshInteriorEnabled		1
+	$FleshInteriorTexture		"vgui/white"  						// white, sine we want to use it for convenient color blending.
+	$FleshNormalTexture			"shadertest/noise_normal" 			// The "normal" of the flesh. Since we apply this effect to a variety of meshes, it doesn't matter really. Just more distortion.
+	$FleshBorderTexture1D		"models/mana/c_wirefade_color" 		// color mapping.
+	$FleshInteriorNoiseTexture	"engine/noise-blur-256x256" 		// warp noise
+	$FleshSubsurfaceTexture		"models/mana/shield_flow" 			// Nobody's gonna see that anyway...
+	$FleshCubeTexture			"models/black" 						// No envmap. Color blending, nothing shiny. Besides, cubemaps are insanely inconsistent accross the variety of source engine maps anyway.
+	$FleshBorderNoiseScale     	0.3 								// how detailed / fine the noise should appear
+	$FleshBorderWidth			3  									// how large the colored area is until the sub-surface is revealed.
+	$FleshBorderSoftness		0.1 								// the cut-off between colored border and sub-surface.
+	$FleshBorderTint			"[ 1 1 1 ]" 						// Irrelevant, see proxies.
+	$FleshGlossBrightness		1
+	$FleshDebugForceFleshOn	 	1
+	$FleshScrollSpeed			4.0
+
+	"Proxies" 
+	{
+		// We multiply the blend tint by blend strength. That we we only have to write into one integer, instead of integers and vectors. This controls the emissive blend brightness.
+		"Multiply"
+		{
+			"srcVar1" 		$emissiveBlendTint
+			"srcVar2"		$emissiveBlendStrength
+			"resultVar" 	$emissiveBlendTint
+		}
+		
+		// Copy emissive blend color to flesh blend color.
+		"Equals"
+		{
+			"srcVar1" 		$emissiveBlendTint
+			"resultVar" 	$FleshBorderTint
+		}
+		
+		// Same as above, but for flesh blend.
+		"Multiply"
+		{
+			"srcVar1" 		$FleshBorderTint
+			"srcVar2"		$FleshGlossBrightness
+			"resultVar" 	$FleshBorderTint
+		}
+	}
+}

@@ -1,0 +1,11 @@
+"VertexlitGeneric"
+{
+	"$basetexture" 			"models/halo3/cov/elite/elite_personal_decals"
+	"$additive"			"1"
+	"$nocull"				"1"
+
+	"$rimlight"			"1"
+	"$rimlightexponent"			"2"
+	"$rimlightboost"			"0.2"
+
+}

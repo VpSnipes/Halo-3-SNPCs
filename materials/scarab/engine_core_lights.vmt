@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "scarab/scarab_illum"
+	$Translucent 1
+}

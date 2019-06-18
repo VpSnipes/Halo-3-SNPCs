@@ -1,0 +1,7 @@
+"VertexlitGeneric"
+{
+	"$basetexture" 			"models/halo3/cov/hunter/plasma_cannon_antigrav_base"
+	"$nocull"				"1"
+	"$envmapmask" 			"models/halo3/cov/hunter/plasma_cannon_antigrav_base"
+	"$selfillum_envmapmask_alpha" 	"1"
+}

@@ -1,0 +1,18 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "scarab/viewscreen_mask"
+	$Translucent 1
+	"$detail" "scarab/static_horizontal"
+	"$detailscale" "3"
+	"$detailblendfactor" "0.6"
+	"$detailblendmode" "2"
+     "Proxies"
+        {
+            "TextureScroll"
+            {
+                "textureScrollVar" "$detailtexturetransform"
+                "textureScrollRate" 0.03
+                "textureScrollAngle" -90
+             }
+         }
+}

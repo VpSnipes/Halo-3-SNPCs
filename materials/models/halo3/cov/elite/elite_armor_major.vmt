@@ -1,0 +1,25 @@
+"VertexlitGeneric"
+{
+	"$basetexture" 			"models/halo3/cov/elite/newelite_diffuse"
+	"$bumpmap"			"models/halo3/cov/elite/newelite_normal"
+	"$color2"				"[0.65 0.17 0.16]"
+	"$AmbientOcclusion"		"1"
+	
+	"$nodecal"			"1"
+	"$normalmapalphaenvmapmask"	"1"
+	"$phong"				"1"
+	"$phongexponent"			"15"
+	"$phongboost"			"10"
+	"$phongtint"			"[0.65 0.17 0.16]"
+	"$phongfresnelranges"		"[0.67 0.83 1]"
+
+	"$phongalbedotint" 			"1"
+	"$phongwarptexture" 		"models/halo3/cov/scarab/phongwarp_metal2"
+
+	"$blendtintbybasealpha" 		"1"
+	"$blendtintcoloroverbase" 		"0"
+
+	"$rimlight"			"1"
+	"$rimlightexponent"			"2"
+	"$rimlightboost"			"0.2"
+}

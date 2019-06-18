@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+"$basetexture" "scarab/hunter_gun_plasma_diffuse"
+"$nocull""1"
+"$envmapmask" "misscarab/hunter_gun_plasma_diffuse"
+"$selfillum_envmapmask_alpha" 1
+}

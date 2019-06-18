@@ -1,0 +1,22 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "scarab/scarab_interior_diffuse"
+	"$bumpmap" "scarab/scarab_floor_bump"
+	$color2 "[0.72 0.72 0.72]"
+
+	"$nodecal"			"1"
+	"$normalmapalphaenvmapmask"	"1"
+	"$phong"				"1"
+	"$phongexponent"			"25"
+	"$phongboost"			"10"
+	"$phongtint"			"[0.76 0.79 0.80]"
+	"$phongfresnelranges"		"[0.67 0.83 1]"
+
+	"$phongalbedotint" 			"1"
+	"$phongexponenttexture" 		"models\Dark_Souls\shared\shared_green"
+	"$phongwarptexture" 		"models/halo3/cov/scarab/phongwarp_metal2"
+
+	"$envmap" "models\Dark_Souls\shared\painted_silver_ldr"
+	"$envmaptint""[0.00125 0.00124 0.00115]"
+	"$envmapfresnel""1"
+}

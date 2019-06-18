@@ -1,0 +1,25 @@
+"VertexlitGeneric"
+{
+	"$basetexture" 			"models/halo3/cov/hunter/fuel_rod_glass"
+	"$additive"			"1"
+	"$envmapmask" 			"models/halo3/cov/hunter/fuel_rod_glass"
+	"$selfillum_envmapmask_alpha" 	"1"
+
+	"$emissiveBlendEnabled"		"1"
+	"$emissiveBlendTexture"		"models/halo3/cov/fuel_rod_noise"
+	"$emissiveBlendBaseTexture"		"models/halo3/cov/hunter/fuel_rod_glass"
+	"$emissiveBlendFlowTexture"		"models/halo3/cov/fuel_rod_flow"
+	"$emissiveBlendTint"		"[1 3 0]"
+	"$emissiveBlendStrength"         	"1"
+	"$emissiveBlendScrollVector"   	"[ 0.2 0.2 ]"
+
+	Proxies
+	{
+		"Multiply"
+		{
+			"srcVar1"         $emissiveBlendTint
+			"srcVar2"        $emissiveBlendStrength
+			"resultVar"     $emissiveBlendTint
+		}
+	}
+}

@@ -1,0 +1,27 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "scarab/hunter_skin"
+	"$bumpmap" "scarab/hunter_skin_bump"
+	$color2 "[0.72 0.72 0.72]"
+	"$nocull" 1
+	
+	$nodecal 1
+	"$normalmapalphaenvmapmask"    "1"
+	"$phong" "1"
+	"$phongexponent"				"50"
+	"$phongboost"					"27.996837"
+	"$phongfresnelranges"			"[0.67 0.83 1]"
+
+	"$phongalbedotint" 1
+	"$phongexponenttexture" "models\Dark_Souls\shared\souls_green"
+	"$phongwarptexture" "models\Dark_Souls\shared\testwarp2"
+
+	"$envmap" "models\Dark_Souls\shared\painted_silver_ldr"
+	"$envmaptint""[0.00125 0.00124 0.00115]"
+	"$envmapfresnel""1"
+ 	
+	"$detail" "scarab/hunter_skin_detail" 
+	$detailscale 2
+	$detailblendscale 1       
+
+}

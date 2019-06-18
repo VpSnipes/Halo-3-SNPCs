@@ -1,0 +1,61 @@
+"VertexlitGeneric"
+{
+	$basetexture 				"dev/hide"
+
+	$nocull						1
+	$nodecal 					1
+	$ignorez 					1
+
+	$alphatest 					1
+	$translucent 				1
+	$additive 					1
+	
+	$selfillumt 				1
+	$selfillumtint 				"[ 1 1 1 ]"
+	
+	$emissiveBlendEnabled 		1
+	$emissiveBlendTexture		"models/mana/shield_noise"
+	$emissiveBlendBaseTexture	"vgui/white"
+	$emissiveBlendFlowTexture	"models/mana/shield_flow"
+	$emissiveBlendTint 			"[ 0.4 0.6 6 ]"
+	$emissiveBlendStrength 		1
+	$emissiveBlendScrollVector 	"[ -1 2 ]"
+
+	$FleshInteriorEnabled		1
+	$FleshInteriorTexture		"models/weapons/spectra/spectra_bone_rotten_interior"
+	$FleshNormalTexture			"shadertest/noise_normal"
+	$FleshBorderTexture1D		"models/weapons/misc/energy_surf_tintmap_celestial"
+	$FleshInteriorNoiseTexture	"engine/noise-blur-256x256"
+	$FleshSubsurfaceTexture		"models/weapons/spectra/spectra_bone_rotten_interior"
+	$FleshCubeTexture			"env_cubemap"
+	$FleshBorderNoiseScale     	0.4
+	$FleshBorderWidth			8
+	$FleshBorderSoftness		0.1
+	$FleshBorderTint			"[ 1 1 1 ]"
+	$FleshGlossBrightness		16
+	$FleshDebugForceFleshOn	 	1
+	$FleshScrollSpeed			4.0
+
+	"Proxies" 
+	{
+		"Multiply"
+		{
+			"srcVar1" 		$emissiveBlendTint
+			"srcVar2"		$emissiveBlendStrength
+			"resultVar" 	$emissiveBlendTint
+		}
+		
+		"Equals"
+		{
+			"srcVar1" 		$emissiveBlendTint
+			"resultVar" 	$FleshBorderTint
+		}
+		
+		"Multiply"
+		{
+			"srcVar1" 		$FleshBorderTint
+			"srcVar2"		$FleshGlossBrightness
+			"resultVar" 	$FleshBorderTint
+		}
+	}
+}

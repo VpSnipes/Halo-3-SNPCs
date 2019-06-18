@@ -1,0 +1,21 @@
+"VertexLitGeneric"
+{
+"$basetexture" "scarab/jackal_shield_mask"
+"$translucent" "1"
+"$nocull""1"
+"$envmapmask" "misscarab/scarab_illum"
+"$selfillum_envmapmask_alpha" 1
+	"$detail" "scarab/scarab_inner_shield_mask"
+	"$detailscale" "3"
+	"$detailblendfactor" "0.6"
+	"$detailblendmode" 2
+     "Proxies"
+        {
+            "TextureScroll"
+            {
+                "textureScrollVar" "$detailtexturetransform"
+                "textureScrollRate" 0.03
+                "textureScrollAngle" -90
+	}
+         }
+}

@@ -1,0 +1,22 @@
+"VertexlitGeneric"
+{
+	"$basetexture"	 		"models/halo3/flood/marine/floodcombat_human"
+	"$bumpmap"			"models/halo3/flood/marine/floodcombat_human_zbump"
+	"$AmbientOcclusion"		"1"
+	
+	"$nodecal"			"1"
+	"$normalmapalphaenvmapmask"	"1"
+	"$phong"				"1"
+	"$phongexponent"			"10"
+	"$phongboost"			"5"
+	"$phongfresnelranges"		"[0.67 0.83 1]"
+
+	"$phongalbedotint" 			"1"
+	"$phongexponenttexture" 		"models\Dark_Souls\shared\shared_green"
+	"$phongwarptexture" 		"models/halo3/cov/scarab/phongwarp_metal2"
+
+	"$rimlight"			"1"
+	"$rimlightexponent"			"2"
+	"$rimlightboost"			"0.2"
+
+}

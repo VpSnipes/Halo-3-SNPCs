@@ -1,0 +1,17 @@
+"VertexlitGeneric"
+{
+	"$basetexture"	 		"models/halo3/cov/elite/sp_raptor_lights"
+	"$color2"				"[0 1 0.5]"
+
+	"$emissiveBlendEnabled" 		"1"
+	"$emissiveBlendTexture"		"dev/null"
+	"$emissiveBlendBaseTexture"		"models/halo3/cov/elite/sp_raptor_lights"
+	"$emissiveBlendFlowTexture"		"dev/null"
+	"$emissiveBlendTint" 		"[0 1 0.5]"
+	"$emissiveBlendStrength" 		"1"
+	"$emissiveBlendScrollVector" 		"[0 0]"
+
+	"$rimlight"			"1"
+	"$rimlightexponent"			"2"
+	"$rimlightboost"			"0.2"
+}
