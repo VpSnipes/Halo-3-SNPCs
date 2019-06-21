@@ -15,12 +15,14 @@ if VJExists == true then
 	include('autorun/vj_controls.lua')
 	local vCat = "Halo 3"
 	
-	if(steamid != "STEAM_0:0:22688298") or (steamid != "STEAM_0:0:38270154") then
 	--==__Covenant__==--
 		VJ.AddNPC("Hunter","npc_vj_h3_cov_hunter",vCat)
 		VJ.AddNPC("Hunter Golden","npc_vj_h3_cov_hunter_gold",vCat)
 		VJ.AddNPC("Scarab","npc_vj_h3_cov_scarab",vCat)
-	end
+		
+	--==__Flood__==--
+		VJ.AddNPC("Flood Elite","npc_vj_h3_flood_elite",vCat)
+		VJ.AddNPC("Flood Infection","npc_vj_h3_flood_infection",vCat)
 
 	-- precache -- 
 game.AddParticles( "particles/npcarmor.pcf" )

@@ -21,7 +21,7 @@ ENT.VJ_NPC_Class = {"CLASS_COV"} -- NPCs with the same class with be allied to e
 ENT.HasMeleeAttack = true -- Should the SNPC have a melee attack?
 ENT.MeleeAttackDistance = 100
 ENT.MeleeAttackAngleRadius = 50 -- What is the attack angle radius? | 100 = In front of the SNPC | 180 = All around the SNPC
-ENT.MeleeAttackDamageAngleRadius = 40 -- What is the damage angle radius? | 100 = In front of the SNPC | 180 = All around the SNPC
+ENT.MeleeAttackDamageAngleRadius = 30 -- What is the damage angle radius? | 100 = In front of the SNPC | 180 = All around the SNPC
 ENT.MeleeAttackDamageDistance = 100
 ENT.AnimTbl_MeleeAttack = {"Melee_Var_1", "Melee_Var_2", "Melee_Var_3"}
 ENT.TimeUntilMeleeAttackDamage = false
@@ -123,7 +123,7 @@ function ENT:CustomOnThink_AIEnabled()
 		end
 		
 		if self:GetPos():Distance(self:GetEnemy():GetPos()) <= 1300 && math.random(1,30) == 1 && CurTime() > self.NextMoveTime && self:Visible(self:GetEnemy()) && self.CanMoveAgain == true && self.MeleeAttacking == false then
-			local checkdist = self:VJ_CheckAllFourSides(200)
+			local checkdist = self:VJ_CheckAllFourSides(600)
 			local randmove = {}
 			if checkdist.Backward == true then randmove[#randmove+1] = "Backward" end
 			if checkdist.Right == true then randmove[#randmove+1] = "Right" end
