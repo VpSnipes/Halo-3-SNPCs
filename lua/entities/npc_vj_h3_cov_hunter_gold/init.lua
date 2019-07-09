@@ -76,13 +76,14 @@ function ENT:Trajectory(start, goal, v)
   local x = vec:Length()
   local y = goal.z - start.z
   local res = math.sqrt(v^4 - g*(g*x*x + 2*y*v*v))
-  if res ~= res then return end
-  local s1 = math.atan((v*v + res)/(g*x))
-  local s2 = math.atan((v*v - res)/(g*x))
-  pitch = s1 > s2 and s2 or s1
-  vec.z = math.tan(pitch)*x
-  local calc = v*math.sin(pitch)
-  return vec:GetNormalized()*v, (calc+math.sqrt(calc^2-2*g*y))/g
+  if res == res then
+		local s1 = math.atan((v*v + res)/(g*x))
+	  local s2 = math.atan((v*v - res)/(g*x))
+	  pitch = s1 > s2 and s2 or s1
+	  vec.z = math.tan(pitch)*x
+	  local calc = v*math.sin(pitch)
+	  return vec:GetNormalized()*v, (calc+math.sqrt(calc^2-2*g*y))/g
+	else return self:Trajectory(start, goal, v*1.1) end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:RangeAttackCode_GetShootPos(TheProjectile)
@@ -178,6 +179,7 @@ end
 function ENT:CustomInitialize()
 	self:SetSkin(1,1)
 	self:SetCollisionBounds(Vector(45, 45, 115), Vector(-45, -45, 0))
+	self:SetVelocity(self:GetForward()*20000 + self:GetUp()*250)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomOnTakeDamage_BeforeDamage(dmginfo,hitgroup)

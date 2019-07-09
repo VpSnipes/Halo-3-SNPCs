@@ -120,10 +120,10 @@ function ENT:CustomOnThink_AIEnabled()
 			return
 		end
 	end
-	
+
 	if self.CanLeapAgain == false then
 		self:VJ_TASK_COVER_FROM_ENEMY("TASK_RUN_PATH",function(x) x.ConstantlyFaceEnemy = true end)
-		
+
 		if CurTime() > self.NextLeapTime then
 			self.CanLeapAgain = true
 			self.NextLeapTime = CurTime() + math.random(6,8) -- Time until scythe can be recasted
@@ -136,25 +136,23 @@ function ENT:IsLeaping()
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:Leap()
-    self:SetVelocity(self:GetForward()*1500 + self:GetUp()*250)
+  self:SetVelocity(self:GetForward()*1500 + self:GetUp()*250)
 	self.LeapCoroutine = coroutine.create(function()
-	self:VJ_ACT_PLAYACTIVITY("Leap_Start",true,false,false) -- play start leaping animation
-	self.NextLeapTime = CurTime() + math.random(3,4)
-	self.CanLeapAgain = false
-	
-	if self:IsOnGround() then
-		coroutine.yield()
-	end
-    
-	while not self:IsOnGround() do
-		self:VJ_ACT_PLAYACTIVITY("Leap_Airborne",true,false,false)
-		if enemyInMeleeRange then
-		return
-    end
-            coroutine.yield()
-        end
-        self:VJ_ACT_PLAYACTIVITY("Leap_Land",true,false,false) -- play landing animation
-    end)
+		self:VJ_ACT_PLAYACTIVITY("Leap_Start",true,false,false) -- play start leaping animation
+		self.NextLeapTime = CurTime() + math.random(3,4)
+		self.CanLeapAgain = false
+		if self:IsOnGround() then
+			coroutine.yield()
+		end
+		while not self:IsOnGround() do
+			self:VJ_ACT_PLAYACTIVITY("Leap_Airborne",true,false,false)
+			if enemyInMeleeRange then
+				return
+	    end
+	    coroutine.yield()
+	  end
+    self:VJ_ACT_PLAYACTIVITY("Leap_Land",true,false,false) -- play landing animation
+  end)
 end
 /*-----------------------------------------------
 	*** Copyright (c) 2012-2016 by DrVrej, All rights reserved. ***

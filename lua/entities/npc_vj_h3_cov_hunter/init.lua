@@ -28,7 +28,7 @@ ENT.TimeUntilMeleeAttackDamage = false
 ENT.NextAnyAttackTime_Melee = false
 ENT.MeleeAttackAnimationFaceEnemy = false
 ENT.MeleeAttackDamage = 75
-ENT.MeleeAttackDamageType = DMG_SLASH	
+ENT.MeleeAttackDamageType = DMG_SLASH
 
 	-- Range Attack ---------------------------------------------------------------------------------------------------------------------------------------------
 ENT.HasRangeAttack = true -- Should the SNPC have a range attack?
@@ -68,20 +68,20 @@ function ENT:CustomOnThink_AIEnabled()
 		self.RangeAttackPos_Up = 62.207741 -- Up/Down spawning position for range attack
 		self.RangeAttackPos_Forward = 2.561404 -- Forward/ Backward spawning position for range attack
 		self.RangeAttackPos_Right = 22 -- Right/Left spawning position for range attack
-		
+
 		if IsValid(self:GetEnemy())then
 			self.AnimTbl_IdleStand = {ACT_IDLE}
 			self.AnimTbl_Run = {ACT_RUN}
 			self.AnimTbl_Walk = {ACT_WALK}
-			
+
 		else
 			self.AnimTbl_IdleStand = {ACT_IDLE_RELAXED}
 			self.AnimTbl_Run = {ACT_RUN}
 			self.AnimTbl_Walk = {ACT_WALK_RELAXED}
-			
+
 		end
 	end
-	
+
 	if self.IsCrouching == true then
 		self.RangeAttackPos_Up = 43.067856 -- Up/Down spawning position for range attack
 		self.RangeAttackPos_Forward = 2.561404 -- Forward/ Backward spawning position for range attack
@@ -99,7 +99,7 @@ function ENT:CustomOnThink_AIEnabled()
 			self.NextCrouchTime = CurTime() + math.random(8,16) -- Time until scythe can deactivate
 		end
 	end
-	
+
 	if self.RangeAttacking == false && self.IsCrouching == true && self.MeleeAttacking == false && self.Dead == false && self.VJ_IsBeingControlled == false	then
 		if math.random(1,3) == 1 && CurTime() > self.NextCrouchTime then -- Random movement
 			self:VJ_ACT_PLAYACTIVITY("Crouch_To_Idle",true,false,false) -- Right dodge anim
@@ -107,21 +107,21 @@ function ENT:CustomOnThink_AIEnabled()
 			self.NextCrouchTime = CurTime() + math.random(5,10) -- Time until scythe can be recasted
 		end
 	end
-	
+
 	if self.CanMoveAgain == false then
 		if CurTime() > self.NextMoveTime then
 			self.CanMoveAgain = true
 			self.NextMoveTime = CurTime() + math.random(6,8) -- Time until scythe can be recasted
 		end
 	end
-	
-	if self:GetEnemy() != nil && self.VJ_IsBeingControlled == false then	
+
+	if self:GetEnemy() != nil && self.VJ_IsBeingControlled == false then
 		if self:GetPos():Distance(self:GetEnemy():GetPos()) <= 300	then
 			self.ConstantlyFaceEnemy = false
 		else
 			self.ConstantlyFaceEnemy = true
 		end
-		
+
 		if self:GetPos():Distance(self:GetEnemy():GetPos()) <= 1300 && math.random(1,30) == 1 && CurTime() > self.NextMoveTime && self:Visible(self:GetEnemy()) && self.CanMoveAgain == true && self.MeleeAttacking == false then
 			local checkdist = self:VJ_CheckAllFourSides(600)
 			local randmove = {}
@@ -139,15 +139,15 @@ function ENT:CustomOnThink_AIEnabled()
 			end
 		end
 	end
-	
-	
+
+
 	//print(self:WorldToLocal(self:GetAttachment(self:LookupAttachment("Cannon")).Pos))
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomInitialize()
 	//self:SetPos(Vector(0,0,0))
 	//self:SetAngles(Angle(0,0,0))
-	self:SetCollisionBounds(Vector(45, 45, 115), Vector(-45, -45, 0))	
+	self:SetCollisionBounds(Vector(45, 45, 115), Vector(-45, -45, 0))
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:CustomOnTakeDamage_BeforeDamage(dmginfo,hitgroup)
@@ -155,11 +155,11 @@ function ENT:CustomOnTakeDamage_BeforeDamage(dmginfo,hitgroup)
 		dmginfo:ScaleDamage(0)
 		self:EmitSound("halo3/cov/hunter/hard_metal_thick_cov_hunter/hard_metal_thick_cov_hunter"..math.random(1,4)..".wav", 80, 100, 1)
 	end
-	
+
 	if dmginfo:GetDamageType() == DMG_SLASH then
 		dmginfo:ScaleDamage(0.15)
 	end
-	
+
 	if hitgroup == 12 then
 		dmginfo:ScaleDamage(0.3)
 	end
@@ -190,58 +190,58 @@ function ENT:CustomOnAcceptInput(key,activator,caller,data)
 	if key == "Step" then
 		self:EmitSound("halo3/cov/hunter/run/walk"..math.random(1,6)..".wav", 80, 90, 1)
 		self:EmitSound("halo3/cov/hunter/shortmove/move"..math.random(1,31)..".wav", 80, 90, 1)
-		
+
 	elseif key == "Impact_Metal" then
 		self:EmitSound("halo3/cov/hunter/hard_metal_thick_cov_hunter/hard_metal_thick_cov_hunter"..math.random(1,4)..".wav", 80, 100, 1)
-		
+
 	elseif key == "Melee_Vox" then
 		self:EmitSound("halo3/cov/hunter/melee/melee"..math.random(1,22)..".wav", 80, 90, 1)
-	
+
 	elseif key == "Melee_Var_1" then
 		self:EmitSound("halo3/cov/hunter/melee_var1/melee_var1_"..math.random(1,3)..".wav", 80, 90, 1)
-	
+
 	elseif key == "Melee_Var_2" then
 		self:EmitSound("halo3/cov/hunter/melee_var2/melee_var2_"..math.random(1,3)..".wav", 80, 90, 1)
-	
+
 	elseif key == "Melee_Var_3" then
 		self:EmitSound("halo3/cov/hunter/melee_var3/melee_var3_"..math.random(1,3)..".wav", 80, 90, 1)
-		
+
 	elseif key == "Posing_Var_1" then
 		self:EmitSound("halo3/cov/hunter/posing_var1/posing_var1_"..math.random(1,3)..".wav", 80, 90, 1)
-	
+
 	elseif key == "Posing_Var_2" then
 		self:EmitSound("halo3/cov/hunter/posing_var2/posing_var2_"..math.random(1,3)..".wav", 80, 90, 1)
-	
+
 	elseif key == "Posing_Var_3" then
 		self:EmitSound("halo3/cov/hunter/posing_var3/posing_var3_"..math.random(1,3)..".wav", 80, 90, 1)
-		
+
 	elseif key == "Posing_Var_4" then
 		self:EmitSound("halo3/cov/hunter/posing_var4/posing_var4_"..math.random(1,3)..".wav", 80, 90, 1)
-		
+
 	elseif key == "Charge_Weapon" then
 		ParticleEffectAttach("hcea_hunter_frg_charge",PATTACH_POINT_FOLLOW,self,1)
 		self:EmitSound("halo3/cov/hunter/hunter_cannon/hunter_charge.wav", 80, 100, 1)
-	
+
 	elseif key == "Laser_Start" then
 		self:EmitSound("halo3/cov/hunter/hunter_cannon/hunter_cannon_loop/hunter_cannon/in.wav", 80, 100, 1)
-		
+
 	elseif key == "Laser_End" then
-		self:StopParticles() 
-		self:EmitSound("halo3/cov/hunter/hunter_cannon/hunter_cannon_loop/hunter_cannon/out.wav", 80, 100, 1) 
-	
+		self:StopParticles()
+		self:EmitSound("halo3/cov/hunter/hunter_cannon/hunter_cannon_loop/hunter_cannon/out.wav", 80, 100, 1)
+
 	elseif key == "Hit" then
 		self:MeleeAttackCode()
 		util.ScreenShake(self:GetPos(),5,100,0.5,250)
-	
+
 	elseif key == "Fire_Weapon" then
 		self:RangeAttackCode()
-		
+
 	elseif key == "TrackingOn" then
 		self.MeleeAttackAnimationFaceEnemy = true
-	
+
 	elseif key == "TrackingOff" then
 		self.MeleeAttackAnimationFaceEnemy = false
-	
+
 	end
 end
 /*-----------------------------------------------
