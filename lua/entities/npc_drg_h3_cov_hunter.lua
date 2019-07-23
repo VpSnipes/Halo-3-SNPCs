@@ -33,7 +33,7 @@ ENT.MeleeAttackRange = 300
 ENT.ReachEnemyRange = 1200
 ENT.AvoidEnemyRange = 0
 
--- Movements/animations --
+-- Movements --
 ENT.UseWalkframes = true
 
 -- Relationships --
@@ -45,6 +45,7 @@ ENT.EyeOffset = Vector(0, 0, 0)
 
 -- Possession --
 ENT.PossessionEnabled = true
+ENT.PossessionCrosshair = true
 ENT.PossessionViews = {
   {
     offset = Vector(0, 60, 15),
@@ -110,7 +111,6 @@ if SERVER then
     self:SetDefaultRelationship(D_HT)
     self:SetAttack({"Melee_Var_1", "Melee_Var_2", "Melee_Var_3"}, true)
     self:SetAttack("gesture_fire_weapon", true)
-    self:PrintAnimations()
   end
   function ENT:CustomThink()
     if self:IsPossessed() then return end

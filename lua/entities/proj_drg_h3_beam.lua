@@ -9,7 +9,6 @@ ENT.Category = "Halo 3"
 ENT.Gravity = false
 ENT.Physgun = false
 ENT.Gravgun = false
-ENT.Collisions = false
 
 -- Contact --
 ENT.OnContactDelete = 0
@@ -32,7 +31,12 @@ ENT.OnRemoveEffects = {"hcea_hunter_frnade_hit"}
 if SERVER then
   AddCSLuaFile()
 
+  function ENT:CustomInitialize()
+    self:SetCollisionGroup(COLLISION_GROUP_DEBRIS)
+  end
+
   function ENT:OnContact(ent)
+    if ent == self:GetOwner() then return end
     self:DynamicLight(Color(255, 150, 0), 300, 4)
     self:DealDamage(ent, 12, DMG_BLAST)
   end
